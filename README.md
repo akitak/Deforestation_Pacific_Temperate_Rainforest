@@ -1,0 +1,194 @@
+# Deforestation of Pacific Temperate Rainforests
+<i>most recently updated on September 8, 2021</i>
+
+## Introduction
+This project serves as my Capstone project in my [General Assembly - Data Science Immersive program](https://generalassemb.ly/education/data-science-immersive-remote) that I was enrolled in from **June 14, 2021 to September 8, 2021,** and showcases my Python skills and techniques I've acquired in Data Collection, Data Cleaning, Exploratory Data Analysis, Machine Learning and Deep Learning over the past 13 weeks.
+
+<b><i>This project is designed to be a comprehensive assessment of the deforestation of the Pacific Temperate Rainforests in the west coast of North America, spanning The United States and Canada, and is fully intended to be a presentable project repository.</i></b> However, this is by no means a completed project. Because climate is constantly changing, any data science project dealing with climate issues can be updated to account for current, real-time data. I plan to supplement and enhance the contents of this project with new data as it becomes available, as well as new skills and techniques that I learn going forward in my career as a data scientist.)
+
+## Background
+
+<b><u>What is a temperate rainforest?</u></b>
+
+According to [Professor Paul Alaback](https://www.cfc.umt.edu/personnel/details.php?ID=1106) (current Professor Emeritus of Forest Ecology at the University of Montana), as referenced in his paper entitled ['Comparative ecology of temperate rainforests of the Americas along analogous climatic gradients,'](http://rchn.biologiachile.cl/pdfs/1991/3/Alaback_1991.pdf) a temperate rainforest has the below 4 characteristics:
+1. Over 1,400 millimeters of precipitation annually, with 10% or more occurring during the summer months,
+2. Cool frequently overcast summers under 16 degrees Celsius,
+3. Fire is infrequent and not an important evolutionary factor, and
+4. Dormant season caused by low temperatures may be accompanied by transient snow.
+
+[Wikipedia](https://en.wikipedia.org/wiki/Temperate_rainforest) summarizes this well in layman's terms: "Temperate rainforests are coniferous or broadleaf forests that occur in the temperate zone and receive heavy rain."
+
+Various websites encountered through google searches provide information on temperate rainforests, but many seem to shy away from providing a clear definition of this ecosystem. However, through browsing the contents of these pages, it is apparent that they are referring to the abovementioned characteristics of the temperate rainforests outlined by Professor Alaback.
+
+<b><u>Where are the temperate rainforests located?</u></b>
+
+Despite the lack of clarity in defining the term <i>'temperate rainforest,'</i> most sources, including [Professor Alaback](http://rchn.biologiachile.cl/pdfs/1991/3/Alaback_1991.pdf) and the [World Wildlife Federation](https://www.worldwildlife.org/biomes/temperate-coniferous-forest) appear to be agreement in referring to the following areas as <i>'temperate rainforests,' with the below two rainforests being the largest in size</i> :
+1. **The northern Pacific coast of North America,** ranging from a narrow band along the Olympic Peninsula in Washington State, extending through British Columbia into southeastern Alaska, (some sources will argue that this region will extend to California)
+2. **southern Chile** from Valdivia in the coast and Conguillio in the Andes south to western Tierra del Fuego, </br>
+
+Isolated patches of rainforest in the below regions:
+
+3. <b>The Northeastern Atlantic (including portions of Ireland, Scotland and Iceland),</b>
+4. <b>Southwestern Japan,</b>
+5. <b>Regions of New Zealand, </b>
+6. <b>Regions of Tasmania,</b> and
+7. <b>Regions of the eastern Black Sea</b>
+
+In this project, I'd like to focus on the <b>Pacific temperate rainforests (the region of rainforests in the Pacific Northwest region of the United States),</b> the largest temperate rainforest region in the world.
+
+<b><u>How does deforestation come into play for the Pacific temperate rainforests?</u></b>
+
+Let us consider our neighbors to the north, Canada. Close to 25% of the world's temperate rainforests are located in British Columbia, Canada [(Source)](https://www.hellobc.com/stories/bcs-unique-temperate-rainforest/). 
+
+Environmentalists, such as the author of this [article](https://thenarwhal.ca/canadas-forgotten-rainforest/) and the Canadian government, seem to disagree on the extent of deforestation in Canada, as evidenced by Natural Resources Canada's [publication on deforestation](https://d1ied5g1xfgpx8.cloudfront.net/pdfs/36710.pdf).
+
+Natural Resources Canada insists that deforestation affects less than 0.2% of Canada's forests per year. 
+
+They also claim that Canada's deforestation rate accounts for approximately 0.3% of global deforestation, which is much less than Canada's 9% share of the world's forests.
+
+<img src="./photos/canada_deforestation_2010.png">
+<i>Fig 1: A pie chart showing causes of deforestation in Canada for 2010 (credit to Natural Resources Canada)</i>
+</br>
+</br>
+
+It is interesting to note that many sources, including Natural Resources Canada's publication referenced above and an article from Sciencing [(Source)](https://sciencing.com/limiting-factors-of-temperate-forests-13406003.html) mention human factors as a primary reason for deforestation, but do not reference forest fires.
+
+<b><i>This fact confused me, as the very reason why I chose to explore this topic was because of various forest fires due to the warmer weather in British Columbia this summer.</i></b>
+
+The BC Wildfire Service (under the government of British Columbia) has a [real-time tracker of forest fires](https://arcg.is/1yW5ii) in the province.
+
+It shows that as of this summer, only two uncontrollable forestfires as of today, September 8, 2021 are situated near the coast.
+
+<img src="./photos/bc_wildfire_2021.png">
+<img src="./photos/bc_wildfire_legend.png">
+<i>Fig 2: Forest Fires in British Columbia as of today (credit to BC Wildfire Services)</i>
+</br>
+</br>
+
+<img src="./photos/GBRMaps_2016.jpeg">
+
+<i>Fig 3: Map of the Great Bear Rainforest [(Canopy Planet)](https://canopyplanet.org/campaigns/protecting-forests/the-coastal-temperate-rainforest/protecting-the-great-bear-rainforest/) </i>
+</br>
+</br>
+This seems to be consistent with Professor Alaback's definition of a temperate rainforest, with one condition where <i>"Fire is infrequent and not an important evolutionary factor".</i>
+
+
+## Problem Statement
+
+Given the magnitude of area classified as part of the Pacific temperate rainforests ecosystem, I would like to break this project down into smaller pieces and take the following steps to tackle this problem:
+
+[Global Forest Watch](https://www.globalforestwatch.org/dashboards/country/CAN/?category=summary&dashboardPrompts=eyJzaG93UHJvbXB0cyI6dHJ1ZSwicHJvbXB0c1ZpZXdlZCI6WyJkb3dubG9hZERhc2hib2FyZFN0YXRzIiwid2lkZ2V0U2V0dGluZ3MiXSwic2V0dGluZ3MiOnsic2hvd1Byb21wdHMiOnRydWUsInByb21wdHNWaWV3ZWQiOlsiZG93bmxvYWREYXNoYm9hcmRTdGF0cyJdLCJzZXR0aW5ncyI6eyJzaG93UHJvbXB0cyI6dHJ1ZSwicHJvbXB0c1ZpZXdlZCI6W10sInNldHRpbmdzIjp7Im9wZW4iOmZhbHNlLCJzdGVwSW5kZXgiOjAsInN0ZXBzS2V5IjoiIn0sIm9wZW4iOnRydWUsInN0ZXBzS2V5IjoiZG93bmxvYWREYXNoYm9hcmRTdGF0cyJ9LCJvcGVuIjp0cnVlLCJzdGVwSW5kZXgiOjAsInN0ZXBzS2V5Ijoid2lkZ2V0U2V0dGluZ3MifSwic3RlcHNLZXkiOiJ3aWRnZXRTZXR0aW5ncyIsInN0ZXBJbmRleCI6LTEsImZvcmNlIjp0cnVlfQ%3D%3D&location=WyJjb3VudHJ5IiwiQ0FOIiwiMiIsIjUiXQ%3D%3D&map=eyJjZW50ZXIiOnsibGF0Ijo1Mi4yNDY3MzUyNjYyNTQxLCJsbmciOi0xMjYuOTQyNDM2MjE0OTk1OTZ9LCJ6b29tIjo3LjEyNzM1MzYxNzM5MTE0MSwiY2FuQm91bmQiOmZhbHNlLCJkYXRhc2V0cyI6W3siZGF0YXNldCI6InBvbGl0aWNhbC1ib3VuZGFyaWVzIiwibGF5ZXJzIjpbImRpc3B1dGVkLXBvbGl0aWNhbC1ib3VuZGFyaWVzIiwicG9saXRpY2FsLWJvdW5kYXJpZXMiXSwiYm91bmRhcnkiOnRydWUsIm9wYWNpdHkiOjEsInZpc2liaWxpdHkiOnRydWV9LHsiZGF0YXNldCI6InRyZWUtY292ZXItbG9zcyIsImxheWVycyI6WyJ0cmVlLWNvdmVyLWxvc3MiXSwib3BhY2l0eSI6MSwidmlzaWJpbGl0eSI6dHJ1ZSwidGltZWxpbmVQYXJhbXMiOnsic3RhcnREYXRlIjoiMjAwMS0wMS0wMSIsImVuZERhdGUiOiIyMDIwLTEyLTMxIiwidHJpbUVuZERhdGUiOiIyMDIwLTEyLTMxIn0sInBhcmFtcyI6eyJ0aHJlc2hvbGQiOjMwLCJ2aXNpYmlsaXR5Ijp0cnVlfX1dfQ%3D%3D&showMap=true)
+
+"Note that “tree cover loss” is not the same as “deforestation” – tree cover loss includes change in both natural and planted forest, and does not need to be human caused. The data from 2011 onward were produced with an updated methodology that may capture additional loss. Comparisons between the original 2001-2010 data and future years should be performed with caution."
+
+
+## Summary of Current Project Repository
+1. Data Cleaning
+2. Exploratory Data Analysis
+3. Time Series Analysis
+4. Modelling
+
+## Repository Directory
+
+- data
+    - **a**
+    - **b**
+    - **c**
+- notebooks
+    - **01_data_cleaning.ipynb**
+    - **02_eda_data_visualizations.ipynb**
+    - **03_modelling.ipynb**
+- **README.md**
+
+## Data Sources
+
+|File Name|Organization|Dataset Location|Description|
+|---|---|---|---|
+|---|---|---|---|
+
+## Data Dictionary
+
+|Feature|Type|Dataset|Description|
+|---|---|---|---|
+|**column**|*type*|dataset|description| 
+
+## Data Cleaning
+
+
+## Exploratory Data Analysis
+
+
+## Modeling
+
+
+## Summary
+
+
+## Applications
+
+
+## Conclusion/Recommendations
+
+
+## Future Studies
+
+
+- The relationship between PM2.5 and COVID-19 cases
+
+## Personal Motivation
+<b><i>Note: My motivation to pursue this project was largely formulated by my time living and visiting Vancouver, British Columbia, Canada. While I would be happy to speak about my experiences there as well as my interest in Data Science and Machine Learning, I would like to showcase my Data Science skills in this project, so please feel free to skip over this content, or consider reading this section later for a more personal feel of my experience.</b></u>
+
+On September 3, 2021, the Canadian Broadcasting Corporation (CBC) reported that the White Rock Lake wildfire, what was considered to be the largest and most dangerous wildfire in British Columbia, Canada of this summer, was finally contained [(Source)](https://www.cbc.ca/news/canada/british-columbia/bc-wildfire-update-sept3-1.6163734). It is optimistic news after a summer of record-breaking high temperatures in British Columbia with wildfires resulting in areas such as Lytton and Vernon, towns in the interior of the British Columbia province to be evacuated.
+
+As an alumnus of one of Canada's top ranked universities, the University of British Columbia in Vancouver, British Columbia, the Pacific Northwest has a special place in my heart. Since mid-June, I began to notice more and more social media posts from friends and local organizations in British Columbia mention extraordinarily high temperatures in both Vancouver and interior British Columbia. Thankfully, no one I know was forced to evacuate, although thousands of families were evacuated and lost their homes through these vicious fires [(Source)](https://www.nytimes.com/2021/08/12/world/canada/british-columbia-wildfires.html). 
+
+To a lesser extent, I have witnessed the effects of the forest fires in close proximity. On July 6, 2015, I had the once-in-a-lifetime experience to attend [the 2015 FIFA Women's World Cup](https://www.fifa.com/tournaments/womens/womensworldcup/canada2015) Final between Japan and the United States of America. Having spent the majority of my time in Vancouver between September 2005 - November 2014, every time my flight began descending towards Vancouver International Airport, I would sit in awe by my window seat on my flight at the beauty of the Pacific Ocean and the mountains surrounding the area. However, on July 4, 2015, after spending a little over half a year away from my second home, I noticed that my heart didn't race as we approached the airport and took in the scenery. Something just seemed different. I worried if this was a change in my heart, as I had began a new life working in a Big 4 accounting firm in New York City. It was only when I met with my friends awaiting me and caught up with current events in the area that I realized that it was the air quality that was just not the same, which was a result of forest fires in the viscinity. 
+
+As a life-long supporter of Japanese soccer, I was hoping for Japan to repeat their win against the United States from the 2011 FIFA Women's World Cup() Final to raise the World Cup. However, the end result was 5-2 in favor of the United States women. The Japanese team was clearly outmatched, but the poor visibility due to the smoke from the forest fires definitely had an effect on the results. If memory serves me correctly, I recall the American captain mentioning that she took into account the visibility conditions when she chose the side they'd be playing in during the first half. One goal scored by the United States was an astounding long-distanced shot from the half-way line. Thinking back, I wonder if that could've been saved by the Japanese goalkeeper under more favorable weather conditions [(Source)](https://www.nasa.gov/image-feature/goddard/usa-wins-world-cup-soccer-title-under-smoky-skies). Despite the weather conditions and the results, I enjoyed the match and when I returned to Vancouver the following summer to run the Vancouver Marathon, I had began my trip happy and excited to see the beautiful Pacific Northwest city from the sky.
+
+<img src="./photos/whistler_bear_0611.png">
+<i>A photo taken at Whistler, BC on June 11, 2014. I was cycling and encountered a little bear on the street.</i>
+</br>
+</br>
+
+During my time in Vancouver, I was a frequent hiker, having climbed ["Mother Nature's Stairmaster," Grouse Mountain](https://www.grousemountain.com/grousegrind) numerous times. I've encountered wild bears (from a safe distance) at [Whistler](https://www.whistlerblackcomb.com/). I've always had an appreciation for nature as a child, even before relocating to Vancouver as a university student. <i>Therefore, for my final project in the [General Assembly - Data Science Immersive Program](https://generalassemb.ly/education/data-science-immersive-remote), I wanted to incorporate my appreciation for nature, and particularly the Pacific Northwest.</i>
+
+To start, I've refined my project to focus on the <b><i>Pacific temperate rainforest's deforestation.</i></b> Because the wildfires of summer 2021 are still current, and unfortunately on-going, there is definitely a lack of complete data in this area. I would like to expand further projects to focus on the broader forests of British Columbia, specifically to explore the specific wildfire events of summer 2021 and explore key "contributors" to these wildfires, and further establish its socioeconomic effects on the region.
+
+In addition to socioeconomic impact, I would like to study the effect of these wildfires on the wildlife native to the areas affected. Conservation itself can be a very broad topic. For example, my appreciation for animals such as the Spirit Bear, which can only be found in the Great Bear Rainforest in British Columbia [(Source)](https://www.discoverwildlife.com/animal-facts/mammals/facts-about-spirit-bear/) had motivated me to pursue a study aiding in preserving endangered species. This led me to researching applications of machine learning with grizzly bears.
+
+I had come across an interesting article from [the Smithsonian Magazine] (https://www.smithsonianmag.com/smart-news/new-i-offers-facial-recognition-grizzly-bears-180976276/) that elaborated on machine learning being used to distinguish between different grizzly bears, in order to mark and track individual bears for protection purposes. I immediately thought of my two favorite grizzly bears, Grouse Mountain residents [Coola and Grinder](https://www.grousemountain.com/wildlife-refuge). <b><i>It would be an interesting side project to gather photos of Coola and Grinder and create some machine learning and deep learning models to assess whether a photo of either of these grizzly bears is of Coola or Grinder.</i></b>
+
+Further more, recent studies show that the effects of wildfires expand beyond conservation and extend towards our current pandemic. [A research paper](https://www.science.org/doi/10.1126/sciadv.abi8789) published by Science Magazine outlines a study conducted by the Harvard T.H. Chan School of Public Health, where an increase in both the fine particulate air pollution (PM2.5) resulting from wildfire smoke in California, Oregon, and Washington and COVID-19 cases and deaths in the same regions were observed[(Source)](https://news.harvard.edu/gazette/story/2021/08/wildfire-smoke-linked-to-increase-in-covid-19-cases-and-deaths/). This paper takes a deep dive into what [The Centers for Disease Control and Prevention (better known as the CDC)](https://www.cdc.gov/disasters/covid-19/wildfire_smoke_covid-19.html) summarizes simply on their website: <b><i>"Wildfire smoke can irritate your lungs, cause inflammation, affect your immune system, and make you more prone to lung infections, including SARS-CoV-2, the virus that causes COVID-19."</i></b> It would be beneficial to see if there is a correlation between the increase in forest fires in British Columbia and the cases of COVID-19 in the province. 
+
+It is both fascinating and frightening to consider the various effects that wildfires can have on the environment. In addition to the obvious deforestation and loss of habitat/lives of native species, it did not occur to me that forest fires can give rise to health consequences leading to higher cases and deaths of COVID-19. 
+
+I am currently enrolled in [an online micromasters program](https://www.edx.org/micromasters/mitx-statistics-and-data-science) jointly held by EdX and the Massachusetts Institute of Technology for data science. I scheduled the course to begin my first course in Machine Learning right after the conclusion of my [Data Science Immersive Program at General Assembly](https://generalassemb.ly/education/data-science-immersive-remote). I gained a really strong foundation in data science skills, which I hope to refine and expand through continuous learning. I hope to use my new skillset and develop further techniques to enhance my current project ideas.
+
+Finally, as a side note, it fascinates me how almost every problem in the world today can be tackled as a data science problem with machine learning techniques. In accordance, since I began my career as a data scientist with General Assembly's Data Science Immersive Program, I've noticed that in many day-to-day news articles, there is some type of data science technique(s) used in the background to summarize data or make predictions. In other instances, news articles mention the use of Artificial Intelligence (the term is often interchangeably used with 'Machine Learning', and at times, 'Deep Learning') to tackle a new issue.
+
+For example, on August 29, 2021, the [Japan Times](https://www.japantimes.co.jp/news/2021/08/29/national/coast-guard-tech/) reported that Japan would begin implementation of systems that use machine learning to examine real-time satellite imagery gathered on ships sailing in the proximity of Japan's maritime borders to detect suspicious ships. While a topic like this would require understanding of the types of shipping vessels that one would regularly find off the coasts of Japan such as commercial trading, cruise/transportation ships and their course trajectories, it would also require understanding of sensitive information on not only Japan's navy, but neighboring countries' naval activities. Nevertheless, my initial prediction when reading this article was that <b><i>an application of a Convoluted Neural Network could be used to process satellite images</b></i>. From an academic perspective, it would be most interesting to be able to read more about unique ways in which countries use machine learning (Japan with maritime border security in this case).
+
+<b><i>Machine Learning is such a fascinating field. My current wish and goal is to continue studying in this field to gain more knowledge and determine an area of specialization to focus on. Ultimately, I seek to become an expert in this field.</i></b>
+
+## References:
+
+As this is an ongoing project, I am currently in the process of organizing the references and resources used in both my datasets and README writeup. Therefore, the citations are not organized in traditional citation style techniques.
+
+As of this current version of the README, every attempt has been made to reference sources directly when mentioned within this README document. I would also like to provide quick links of all websites referenced in this README document. If you have any questions regarding the content of this project, please feel free to reach out to me via [email](mailto:akira.j.takahashi@gmail.com). I would be more than happy to address any questions you may have.
+
+- https://www.cbc.ca/news/canada/british-columbia/bc-wildfire-update-sept3-1.6163734
+- https://www.nytimes.com/2021/08/12/world/canada/british-columbia-wildfires.html
+- https://www.fifa.com/tournaments/womens/womensworldcup/canada2015
+- https://www.nasa.gov/image-feature/goddard/usa-wins-world-cup-soccer-title-under-smoky-skies
+- https://www.grousemountain.com/grousegrind
+- https://www.whistlerblackcomb.com/
+- https://generalassemb.ly/education/data-science-immersive-remote
+- https://www.discoverwildlife.com/animal-facts/mammals/facts-about-spirit-bear/
+- https://www.smithsonianmag.com/smart-news/new-i-offers-facial-recognition-grizzly-bears-180976276/
+- https://www.grousemountain.com/wildlife-refuge
+- https://www.science.org/doi/10.1126/sciadv.abi8789
+- https://news.harvard.edu/gazette/story/2021/08/wildfire-smoke-linked-to-increase-in-covid-19-cases-and-deaths/
+- https://www.cdc.gov/disasters/covid-19/wildfire_smoke_covid-19.html
+- https://www.edx.org/micromasters/mitx-statistics-and-data-science
+- https://www.japantimes.co.jp/news/2021/08/29/national/coast-guard-tech/
