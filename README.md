@@ -1,5 +1,5 @@
 # Deforestation of Pacific Temperate Rainforests
-<i>most recently updated on September 8, 2021</i>
+<i>most recently updated on February 7, 2022</i>
 
 ## Introduction
 This project serves as my Capstone project in my [General Assembly - Data Science Immersive program](https://generalassemb.ly/education/data-science-immersive-remote) that I was enrolled in from **June 14, 2021 to September 8, 2021,** and showcases my Python skills and techniques I've acquired in Data Collection, Data Cleaning, Exploratory Data Analysis, Machine Learning and Deep Learning over the past 13 weeks.
